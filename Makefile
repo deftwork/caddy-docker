@@ -26,8 +26,8 @@ tag: ## Tag the container
 push: ## Push the container
 	docker push $(NAME):$(GOARCH)-`cat VERSION`
 	docker push $(NAME):$(GOARCH)	
-deploy: ## Build & Tag & Push the container
-	build tag push
+deploy:
+	build tag push 	
 manifest: ## Manifest the container
 	docker manifest create $(NAME):`cat VERSION` $(NAME):$(GOARCH)-`cat VERSION` \
 	$(NAME):$(ARCH2)-`cat VERSION-$(ARCH2)`
