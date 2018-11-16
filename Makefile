@@ -30,7 +30,7 @@ deploy:
 	build tag push 	
 manifest: ## Manifest the container
 	docker manifest create $(NAME):`cat VERSION` $(NAME):$(GOARCH)-`cat VERSION` \
-	$(NAME):$(ARCH2)-`cat VERSION-$(ARCH2)`
+	$(NAME):$(ARCH2)-`cat VERSION`
 	docker manifest push --purge $(NAME):`cat VERSION`
 	docker manifest create $(NAME):latest $(NAME):$(GOARCH) $(NAME):$(ARCH2)
 	docker manifest push --purge $(NAME):latest
