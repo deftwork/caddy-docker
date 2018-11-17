@@ -1,7 +1,7 @@
 SNAME ?= arm-caddy
 NAME ?= elswork/$(SNAME)
 PORT ?= 2015:2015
-GOARCH ?= amd64
+GOARCH ?= arm7
 GOOS ?= linux
 PLUGIN ?= `cat PLUGIN`
 ARCH2 ?= arm7
