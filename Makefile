@@ -5,7 +5,8 @@ GOARCH ?= arm7
 GOOS ?= linux
 PLUGIN ?= `cat PLUGIN`
 ARCH2 ?= arm7
-URL ?= https://caddyserver.com/download/$(GOOS)/$(GOARCH)?plugins=$(PLUGIN)\&license=personal\&telemetry=off
+ONOFF ?= off
+URL ?= https://caddyserver.com/download/$(GOOS)/$(GOARCH)?plugins=$(PLUGIN)\&license=personal\&telemetry=$(ONOFF)
 
 # HELP
 # This will output the help for each task
