@@ -5,6 +5,7 @@ A [Docker](http://docker.com) image for [Caddy](http://caddyserver.com) that wil
 ## Details
 - [Source Repository](https://github.com/DeftWork/caddy-docker)
 - [Deft.Work my personal blog](http://deft.work)
+
 | Docker Hub | Docker Pulls | Docker Stars | Size/Layers |
 | --- | --- | --- | --- |
 | [caddy-docker](https://hub.docker.com/r/elswork/arm-caddy "elswork/arm-caddy on Docker Hub") | [![](https://img.shields.io/docker/pulls/elswork/arm-caddy.svg)](https://hub.docker.com/r/elswork/arm-caddy "caddy-docker on Docker Hub") | [![](https://img.shields.io/docker/stars/elswork/arm-caddy.svg)](https://hub.docker.com/r/elswork/arm-caddy "caddy-docker on Docker Hub") | [![](https://images.microbadger.com/badges/image/elswork/arm-caddy.svg)](https://microbadger.com/images/elswork/arm-caddy "caddy-docker on microbadger.com") |
