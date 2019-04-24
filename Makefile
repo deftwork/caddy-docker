@@ -25,7 +25,7 @@ help: ## This help.
 
 # DOCKER TASKS
 # Build the container
-debug:
+debug: ## Build the container
 	docker build -t $(NAME):$(GOARCH) --build-arg VERSION=$(GOARCH)-`cat VERSION` --build-arg CAD_URL=$(URL) .
 build: ## Build the container
 	docker build --no-cache -t $(NAME):$(GOARCH) --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` --build-arg VCS_REF=`git rev-parse --short HEAD` --build-arg VERSION=$(GOARCH)-`cat VERSION` --build-arg CAD_URL=$(URL) . > ../builds/$(SNAME)_$(GOARCH)_`date +"%Y%m%d_%H%M%S"`.txt
