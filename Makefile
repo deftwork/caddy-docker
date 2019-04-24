@@ -1,7 +1,12 @@
 SNAME ?= arm-caddy
 NAME ?= elswork/$(SNAME)
 PORT ?= 2015:2015
-GOARCH ?= amd64
+GOARCH := $(shell uname -m)
+ifeq ($(GOARCH),x86_64)
+	GOARCH := amd64
+else
+	GOARCH := arm7
+endif
 GOOS ?= linux
 PLUGIN ?= `cat PLUGIN`
 ARCH2 ?= arm7
@@ -20,8 +25,10 @@ help: ## This help.
 
 # DOCKER TASKS
 # Build the container
+debug:
+	docker build -t $(NAME):$(GOARCH) --build-arg VERSION=$(GOARCH)-`cat VERSION` --build-arg CAD_URL=$(URL) .
 build: ## Build the container
-	docker build -t $(NAME):$(GOARCH) --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` --build-arg VCS_REF=`git rev-parse --short HEAD` --build-arg VERSION=$(GOARCH)-`cat VERSION` --build-arg CAD_URL=$(URL) . > ../builds/$(SNAME)_$(GOARCH)_`date +"%Y%m%d_%H%M%S"`.txt
+	docker build --no-cache -t $(NAME):$(GOARCH) --build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` --build-arg VCS_REF=`git rev-parse --short HEAD` --build-arg VERSION=$(GOARCH)-`cat VERSION` --build-arg CAD_URL=$(URL) . > ../builds/$(SNAME)_$(GOARCH)_`date +"%Y%m%d_%H%M%S"`.txt
 tag: ## Tag the container
 	docker tag $(NAME):$(GOARCH) $(NAME):$(GOARCH)-`cat VERSION`
 push: ## Push the container
@@ -43,3 +50,8 @@ stop: ## Stop the container
 	docker stop my_$(SNAME)
 delete: ## Delete the container
 	docker rm my_$(SNAME)
+publish: ## Publish Deft.Work
+	docker run -d -p 80:80 -p 443:443 \
+	-v /home/pirate/docker/www:/srv \
+	-v /home/pirate/docker/Caddyfile/https:/etc/Caddyfile \
+	-v /home/pirate/docker/.caddy:/root/.caddy --restart=unless-stopped $(NAME):$(GOARCH)
