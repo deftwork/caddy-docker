@@ -10,6 +10,8 @@ A [Docker](http://docker.com) image for [Caddy](http://caddyserver.com) that wil
 | --- | --- | --- | --- |
 | [caddy-docker](https://hub.docker.com/r/elswork/arm-caddy "elswork/arm-caddy on Docker Hub") | [![](https://img.shields.io/docker/pulls/elswork/arm-caddy.svg)](https://hub.docker.com/r/elswork/arm-caddy "caddy-docker on Docker Hub") | [![](https://img.shields.io/docker/stars/elswork/arm-caddy.svg)](https://hub.docker.com/r/elswork/arm-caddy "caddy-docker on Docker Hub") | [![](https://images.microbadger.com/badges/image/elswork/arm-caddy.svg)](https://microbadger.com/images/elswork/arm-caddy "caddy-docker on microbadger.com") |
 
+[![dockeri.co](https://dockeri.co/image/elswork/arm-caddy)](https://hub.docker.com/r/elswork/arm-caddy)
+
 ## Latest Enhancements
 - Add support to arm64
 - Upgrade Caddy version to 1.0.0
