@@ -52,7 +52,7 @@ tag: ## Tag the container
 push: ## Push the container
 	docker push $(NAME):$(GOARCH)_$(VER)
 	docker push $(NAME):$(GOARCH)	
-deploy:
+deploy: ## Build Tag and Push the container
 	build tag push 	
 manifest: ## Create an push manifest
 	docker manifest create $(NAME):$(VER) \
