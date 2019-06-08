@@ -7,8 +7,8 @@ PORT ?= 2015:2015
 GOOS ?= linux
 PLUGIN ?= `cat PLUGIN`
 ONOFF ?= off
-ARCH2 ?= armv7l
-ARCH3 ?= aarch64
+ARCH2 ?= arm7
+ARCH3 ?= arm64
 GOARCH := $(shell uname -m)
 ifeq ($(GOARCH),x86_64)
 	GOARCH := amd64
