@@ -1,0 +1,16 @@
+version: '3.2'
+services:
+    caddy:
+        ports:
+            - "2015:2015"
+        volumes:
+            - ./srv:/srv
+            - ./config/Caddyfile-php:/etc/Caddyfile
+        restart: unless-stopped
+        image: elswork/arm-caddy:latest
+        links:
+            - php
+    php:
+        image: php:7.3-fpm-alpine3.9
+        volumes:
+            - ./srv:/srv

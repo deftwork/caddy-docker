@@ -1,0 +1,10 @@
+version: '3.2'
+services:
+    caddy:
+        ports:
+            - "2015:2015"
+        volumes:
+            - ./srv:/srv
+            - ./config/Caddyfile:/etc/Caddyfile
+        restart: unless-stopped
+        image: elswork/arm-caddy:latest

@@ -13,6 +13,7 @@ A [Docker](http://docker.com) image for [Caddy](http://caddyserver.com) that wil
 [![dockeri.co](https://dockeri.co/image/elswork/arm-caddy)](https://hub.docker.com/r/elswork/arm-caddy)
 
 ## Latest Enhancements
+- Add support for PHP pages
 - Add support to arm64
 - Upgrade Caddy version to 1.0.0
 
@@ -22,6 +23,16 @@ This is a simple usage for testing proposes.
 
 ```sh
 $ docker run -d -p 2015:2015 elswork/arm-caddy:latest
+```
+or
+```sh
+$ docker-compose up
+```
+
+If you want to serve PHP pages:
+
+```sh
+$ docker-compose -f docker-compose-php.yml up
 ```
 
 Point your browser to `http://127.0.0.1:2015`.
